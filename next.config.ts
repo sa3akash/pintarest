@@ -25,10 +25,6 @@ const nextConfig: NextConfig = {
             value: 'nosniff', // Prevents MIME-sniffing attacks
           },
           {
-            key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';", // Example CSP
-          },
-          {
             key: 'Strict-Transport-Security',
             value: 'max-age=31536000; includeSubDomains; preload', // Enforces HTTPS
           },
