@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import GalleryItem from "./GalleryItem";
+import GalleryItemVideo from "./GalleryItemVideo";
+import VideoPlayer from "./VideoPlayer";
 import Image from "next/image";
 
 interface ImageAttributes {
@@ -43,8 +45,6 @@ interface GalleryGridProps {
   items: GalleryItemType[];
 }
 
-import GalleryItemVideo from "./GalleryItemVideo";
-
 export default function GalleryGrid({ items }: GalleryGridProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
@@ -56,7 +56,9 @@ export default function GalleryGrid({ items }: GalleryGridProps) {
 
   const handlePrev = useCallback(() => {
     setSelectedIndex((prev) =>
-      prev === null ? null : (prev - 1 + items.length) % items.length
+      prev === null
+        ? null
+        : (prev - 1 + items.length) % items.length
     );
   }, [items.length]);
 
@@ -169,14 +171,9 @@ export default function GalleryGrid({ items }: GalleryGridProps) {
               onClick={(e) => e.stopPropagation()}
             >
               {selectedItem.type === "video" ? (
-                <video
-                  src={
-                    (selectedItem.attributes as VideoAttributes).video
-                      .video_files[0].link
-                  }
-                  controls
-                  autoPlay
-                  className="max-h-[85vh] w-auto max-w-full rounded-md shadow-2xl"
+                <VideoPlayer
+                  src={(selectedItem.attributes as VideoAttributes).video.video_files[0].link}
+                  autoPlay={true}
                 />
               ) : (
                 <Image
