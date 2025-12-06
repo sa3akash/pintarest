@@ -9,10 +9,11 @@ export default function Home() {
         .map((item) => (
           <GalleryItem
             key={item.id}
-            sourse={item.attributes.image?.large ?? ""}
+            sourse={item.attributes.image?.medium ?? ""}
             width={item.attributes?.width ?? 0}
             height={item.attributes?.height ?? 0}
             aspect_ratio={item.attributes.aspect_ratio}
+            color={item.attributes.colors?.[0] ?? "#f0f0f0"}
           />
         ))}
     </div>
