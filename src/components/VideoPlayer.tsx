@@ -298,7 +298,7 @@ export default function VideoPlayer({
             type="range"
             min="0"
             max="100"
-            step="0.01"
+            step="0.1"
             value={progress}
             onChange={handleSeek}
             onClick={(e) => e.stopPropagation()}
@@ -396,7 +396,7 @@ export default function VideoPlayer({
                 step="0.05"
                 value={isMuted ? 0 : volume}
                 onChange={handleVolumeChange}
-                className="w-0 overflow-hidden group-hover/volume:w-24 transition-all duration-300 h-1 bg-white/30 rounded-lg cursor-pointer accent-white"
+                className="w-0 overflow-hidden group-hover/volume:w-14 md:group-hover/volume:w-24 transition-all duration-300 h-1 bg-white/30 rounded-lg cursor-pointer accent-white"
               />
             </div>
           </div>
