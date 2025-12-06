@@ -7,11 +7,15 @@ interface Props {
   height: number;
   aspect_ratio: number;
   color: string;
+  onClick?: () => void;
 }
 
-const GalleryItem = ({ sourse, width, height, color }: Props) => {
+const GalleryItem = ({ sourse, width, height, color, onClick }: Props) => {
   return (
-    <div className="break-inside-avoid mb-4 relative group rounded-xl overflow-hidden">
+    <div 
+      onClick={onClick}
+      className="break-inside-avoid mb-4 relative group rounded-xl overflow-hidden cursor-zoom-in"
+    >
       <div 
         style={{ backgroundColor: color }}
         className="w-full h-full absolute top-0 left-0 -z-10"
